@@ -49,9 +49,9 @@ $ nvidia-smi
 +-----------------------------------------------------------------------------------------+
 ```
 
-#### Python
+#### Python 3.10
 
-Python >= 3.10 is required to run the node. Make sure your Python meets the requirement before preceeding:
+Python 3.10 is required to run the node. Make sure your Python meets the requirement before preceeding:
 
 ```bash
 $ python --version
@@ -131,11 +131,8 @@ $ python -m venv venv
 # Activate the venv
 $ source venv/bin/activate
 
-# Install the requirements
-$ pip install -r requirements.txt
-
 # Install the project as pip package
-$ pip install .
+$ pip install . --extra-index-url https://download.pytorch.org/whl/cu118
 ```
 
 2. Create the venv for the score server, and install the dependencies:
