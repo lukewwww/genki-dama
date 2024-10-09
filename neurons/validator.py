@@ -808,7 +808,9 @@ class Validator:
                      for uid, score in quality_score_per_uid.items()}
 
         for uid in uids:
-            final_scores[uid] = (normalized_sim_scores_per_user[uid] + normalized_qa_scores_per_user[uid]) / 2
+            s1 = normalized_sim_scores_per_user[uid]
+            s2 = normalized_qa_scores_per_user[uid]
+            final_scores[uid] = 2 * s1 * s2 / (s1 + s2)
 
         # Compute softmaxed weights based on win rate.
         model_weights = torch.tensor(
