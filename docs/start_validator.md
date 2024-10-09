@@ -132,7 +132,7 @@ $ python -m venv venv
 $ source venv/bin/activate
 
 # Install the project as pip package
-$ pip install . --extra-index-url https://download.pytorch.org/whl/cu118
+$ pip install -e . --extra-index-url https://download.pytorch.org/whl/cu118
 ```
 
 2. Create the venv for the score server, and install the dependencies:
