@@ -28,7 +28,7 @@ class PoemEvaluator:
         self.api = api
 
     def generate_evaluation_theme(self) -> str:
-        return self.api.get_response(GET_EVALUATION_THEME_PROMPT)
+        return self.api.get_response_from_text(GET_EVALUATION_THEME_PROMPT)
 
     def generate_poem_writing_prompt_for_theme(self, theme: str) -> str:
         return GET_POEM_PROMPT + theme
@@ -36,7 +36,7 @@ class PoemEvaluator:
     def evaluate_poem(self, theme: str, poem: str) -> int:
 
         prompt = GET_RESULT_PROMPT + f"\nThe theme is '{theme}', and the poem is '{poem}'"
-        score_txt = self.api.get_response(prompt)
+        score_txt = self.api.get_response_from_text(prompt)
 
         try:
             score = int(score_txt)
@@ -49,4 +49,3 @@ if __name__ == "__main__":
     evaluator = PoemEvaluator(ClaudeAPI())
     theme = evaluator.generate_evaluation_theme()
     print(f"theme: {theme}")
-    
